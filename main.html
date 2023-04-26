@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <style>
+      /* Style for the login boxes */
+      .login-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 100px;
+        border: 1px solid #777;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      /* Style for the Staff login box */
+      #staff-login {
+        background-color: #C8E6C9;
+        color: #333;
+        margin-right: 10px;
+      }
+      /* Style for the Voter login box */
+      #voter-login {
+        background-color: #B3E5FC;
+        color: #333;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+      <div class="login-box" id="staff-login">Staff Login</div>
+      <div class="login-box" id="voter-login">Voter Login</div>
+    </div>
+  </body>
+</html>
