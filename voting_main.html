@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>E-VOTING SYSTEM</title>
+    <link rel="icon" type="images/x-icon" href="C:\local files\study\projects\voting-system\vote icon.png" />
+    <style>
+      /* Style for the login boxes */
+      .login-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 100px;
+        border: 1px solid #777;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      /* Style for the Staff login box */  
+      #staff-login {
+        background-color: #C8E6C9;
+        color: #333;
+        margin-right: 10px;
+      }
+      /* Style for the Voter login box */
+      #voter-login {
+        background-color: #B3E5FC;
+        color: #333;
+        margin-left: 10px;
+      }
+      /* Style for the page background */
+      body {
+        background-color: #6a94b3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+      /* Style for the welcome message */
+      #welcome-message {
+        text-align: center;
+        font-size: 36px;  
+        font-weight: bold;
+        margin-bottom: 50px;
+        text-decoration: underline;
+      }
+      /* Style for the login boxes container */
+      #login-boxes {
+        display: flex;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="welcome-message">Welcome to E-VOTING SYSTEM</div>
+    <div id="login-boxes">
+      <div class="login-box" id="staff-login"><a href="staff_login.html">Staff Login</a></div>
+      <div class="login-box" id="voter-login">Voter Login</div>
+    </div>
+  </body>
+</html>
