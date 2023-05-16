@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Staff Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="voting.js"></script>
+</head>
+<body>
+  <h1>Staff Dashboard</h1>
+
+  <div class="tab">
+    <button class="tablinks active" onclick="openTab(event, 'voting')">Voting</button>
+    <button class="tablinks" onclick="openTab(event, 'states')">States</button>
+  </div>
+
+  <div class="tabcontent" id="voting">
+    <h2>Voting</h2>
+    <div class="toggle-container">
+      <label class="toggle-label">
+        <input type="checkbox" id="votingToggle" onchange="toggleVoting()">
+        <span class="toggle-slider"></span>
+      </label>
+      <span id="votingStatus">Voting is OFF</span>
+    </div>
+  </div>
+
+  <div class="tabcontent" id="states">
+    <h2>States</h2>
+    <div class="dropdown">
+      <button class="dropdown-btn" onclick="toggleDropdown()">Select States</button>
+      <div id="dropdownContent" class="dropdown-content">
+        <select id="stateSelect" multiple>
+          <!-- Options for all Indian states and union territories -->
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Assam">Assam</option>
+          <!-- Add more options for other states/territories -->
+        </select>
+        <button onclick="showSelectedStates()">OK</button>
+      </div>
+    </div>
+    <div id="selectedStates"></div>
+  </div>
+
+  <script src="swipe-effects.js"></script>
+</body>
+</html>
