@@ -1,19 +1,20 @@
-//staff-login
-const staffLoginForm = document.getElementById('staffLoginForm');
-const errorElement = document.getElementById('error');
+// staff-login.js
 
-staffLoginForm.addEventListener('submit', (event) => {
-  event.preventDefault();
+function login() {
+  var id = document.getElementById("id").value;
+  var password = document.getElementById("password").value;
+  var error = document.getElementById("error");
 
-  const id = document.getElementById('id').value;
-  const password = document.getElementById('password').value;
-
-  if (id === 'yashdubey' && password === 'advit6969') {
-    window.location.href = 'staff-dashboard.html'; // Redirect to staff-dashboard.html
+  if (id === "yashdubey" && password === "advit6969") {
+    window.location.href = "staff-dashboard.html";
   } else {
-    errorElement.textContent = 'WRONG PASSWORD!';
+    error.textContent = "Wrong ID or password!";
   }
-});
+}
+
+function cancel() {
+  window.location.href = "index.html";
+}
 
 
 // Voter Login
@@ -23,66 +24,6 @@ if (voterLoginForm) {
     event.preventDefault();
   });
 }
-
-// staff-dashboard.js
-
-function openTab(event, tabName) {
-  // Get all tab content elements
-  const tabContent = document.getElementsByClassName('tabcontent');
-
-  // Hide all tab content elements
-  for (let i = 0; i < tabContent.length; i++) {
-    tabContent[i].style.display = 'none';
-  }
-
-  // Get all tablinks elements
-  const tablinks = document.getElementsByClassName('tablinks');
-
-  // Remove the 'active' class from all tablinks
-  for (let i = 0; i < tablinks.length; i++) {
-    tablinks[i].classList.remove('active');
-  }
-
-  // Show the selected tab content and add 'active' class to the clicked tablink
-  document.getElementById(tabName).style.display = 'block';
-  event.currentTarget.classList.add('active');
-}
-
-function toggleVoting() {
-  const votingToggle = document.getElementById('votingToggle');
-  const votingStatus = document.getElementById('votingStatus');
-
-  if (votingToggle.checked) {
-    votingStatus.textContent = 'Voting is ON';
-  } else {
-    votingStatus.textContent = 'Voting is OFF';
-  }
-}
-
-function toggleDropdown() {
-  const dropdownContent = document.getElementById('dropdownContent');
-  dropdownContent.classList.toggle('show');
-}
-
-function showSelectedStates() {
-  const stateSelect = document.getElementById('stateSelect');
-  const selectedStates = document.getElementById('selectedStates');
-
-  // Clear the previously selected states
-  selectedStates.innerHTML = '';
-
-  // Get the selected states
-  const selectedOptions = Array.from(stateSelect.selectedOptions);
-
-  // Display the selected states
-  selectedOptions.forEach((option) => {
-    const state = option.value;
-    const stateElement = document.createElement('p');
-    stateElement.textContent = state;
-    selectedStates.appendChild(stateElement);
-  });
-}
-
 
 // voter-signup.js
 
@@ -130,3 +71,66 @@ function verifyOTP(email, otp) {
 function saveUserData(username, password, email) {
   // Implement your logic to store the user's data to local storage or
 }
+
+
+// Function to toggle between tabs
+function openTab(tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  event.currentTarget.className += " active";
+}
+
+// Function to toggle the dropdown
+function toggleDropdown() {
+  document.getElementById("statesDropdown").classList.toggle("show");
+}
+
+// Function to handle the OK button click event
+function handleOK() {
+  var selectedStates = [];
+  var dropdown = document.getElementById("statesSelect");
+  for (var i = 0; i < dropdown.options.length; i++) {
+    if (dropdown.options[i].selected) {
+      selectedStates.push(dropdown.options[i].value);
+    }
+  }
+
+  var selectedStatesDisplay = document.getElementById("selectedStatesList");
+  selectedStatesDisplay.textContent = selectedStates.join(", ");
+
+  toggleDropdown(); // Hide the dropdown after clicking OK
+}
+
+// Set up event listener for OK button click
+var okButton = document.getElementById("okButton");
+okButton.addEventListener("click", handleOK);
+
+// Set up event listener for tab click
+var tablinks = document.getElementsByClassName("tablink");
+for (var i = 0; i < tablinks.length; i++) {
+  tablinks[i].addEventListener("click", function() {
+    openTab(this.id);
+  });
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches(".dropdown-btn")) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
+      }
+    }
+  }
+};
