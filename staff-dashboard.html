@@ -1,58 +1,45 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Staff Dashboard</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="voting.js"></script>
+  <title>Voting Page</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="shortcut icon" href="vote icon.png" />
 </head>
+
 <body>
-  <h1>Staff Dashboard</h1>
-
-<!-- staff-dashboard.html -->
-
-<div class="tab">
-  <button class="tablink active" onclick="openTab('voting')">Voting</button>
-  <button class="tablink" onclick="openTab('selectedStates')">Selected States</button>
-</div>
-
-<div id="voting" class="tabcontent">
-  <h2>Voting</h2>
-  <div class="toggle-container">
-    <label class="toggle-label">
-      <input type="checkbox" id="votingToggle" onchange="toggleVoting()">
-      <span class="toggle-slider"></span>
-    </label>
-    <label for="votingToggle" id="votingStatus">Voting is OFF</label>
+  <div class="tab">
+    <button class="tablink active" id="votingOnButton" onclick="openTab('votingOn')">Voting On</button>
+    <button class="tablink" id="votingOffButton" onclick="openTab('votingOff')">Voting Off</button>
+    <button class="tablink" id="selectStateButton" onclick="openTab('selectState')">Select State</button>
+    <button class="tablink" id="selectedStatesButton" onclick="openTab('selectedStates')">Selected States</button>
   </div>
-  <div class="dropdown">
-    <button class="dropdown-btn" onclick="toggleDropdown()">Select States</button>
-    <div id="statesDropdown" class="dropdown-content">
-      <select id="statesSelect" multiple>
-        <option value="Andhra Pradesh">Andhra Pradesh</option>
-        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-        <option value="Assam">Assam</option>
-        <option value="Bihar">Bihar</option>
-        <option value="Chhattisgarh">Chhattisgarh</option>
-        <option value="Goa">Goa</option>
-        <option value="Gujrart">Gujrart</option>
-        <option value="Haryana">Haryana</option>
-        <option value="Himachal Pradesh">Himachal Pradesh</option>
-        <option value="Jharkhand">Jharkhand</option>
-        <option value="Karnataka">Karnataka</option>
-        <option value="Kerala">Kerala</option>
-        <option value=""></option>
-        <!-- Add more states here -->
-      </select>
-      <button id="okButton">OK</button>
-    </div>
+
+  <div id="votingOn" class="tabcontent">
+    <h2>Voting is ON</h2>
   </div>
-</div>
 
-<div id="selectedStates" class="tabcontent">
-  <h2>Selected States</h2>
-  <p id="selectedStates"></p>
-</div>
+  <div id="votingOff" class="tabcontent">
+    <h2>Voting is OFF</h2>
+  </div>
 
-  <script src="swipe-effects.js"></script>
+  <div id="selectState" class="tabcontent">
+    <h2>Select State</h2>
+    <select id="statesSelect" multiple>
+      <option value="Andhra Pradesh">Andhra Pradesh</option>
+      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+      <option value="Assam">Assam</option>
+      <!-- Add more state options here -->
+    </select>
+    <button id="okButton" onclick="handleSelectState()">OK</button>
+  </div>
+
+  <div id="selectedStates" class="tabcontent">
+    <h2>Selected States</h2>
+    <p id="selectedStatesList">No states selected</p>
+  </div>
+
+  <script src="voting.js"></script>
 </body>
+
 </html>

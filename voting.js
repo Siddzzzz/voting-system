@@ -75,62 +75,49 @@ function saveUserData(username, password, email) {
 
 // Function to toggle between tabs
 function openTab(tabName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
+  var tabcontent = document.getElementsByClassName("tabcontent");
+  for (var i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
+
+  var tablinks = document.getElementsByClassName("tablink");
+  for (var i = 0; i < tablinks.length; i++) {
+    tablinks[i].classList.remove("active");
   }
+
+  if (tabName === "selectState" && document.getElementById("votingOffButton").classList.contains("active")) {
+    return; // Prevent accessing "Select State" tab when voting is off
+  }
+
   document.getElementById(tabName).style.display = "block";
-  event.currentTarget.className += " active";
-}
+  event.currentTarget.classList.add("active");
 
-// Function to toggle the dropdown
-function toggleDropdown() {
-  document.getElementById("statesDropdown").classList.toggle("show");
-}
-
-// Function to handle the OK button click event
-function handleOK() {
-  var selectedStates = [];
-  var dropdown = document.getElementById("statesSelect");
-  for (var i = 0; i < dropdown.options.length; i++) {
-    if (dropdown.options[i].selected) {
-      selectedStates.push(dropdown.options[i].value);
-    }
+  if (tabName === "votingOn") {
+    document.getElementById("votingOn").innerHTML = "Voting is ON";
+  } else {
+    document.getElementById("votingOn").innerHTML = "Voting is OFF";
   }
+}
+
+
+// Function to handle the Select State button click event
+function handleSelectState() {
+  var dropdown = document.getElementById("statesSelect");
+  var selectedStates = Array.from(dropdown.selectedOptions)
+    .map(option => option.value);
 
   var selectedStatesDisplay = document.getElementById("selectedStatesList");
-  selectedStatesDisplay.textContent = selectedStates.join(", ");
-
-  toggleDropdown(); // Hide the dropdown after clicking OK
+  selectedStatesDisplay.textContent = "Selected States: " + selectedStates.join(", ");
 }
-
-// Set up event listener for OK button click
-var okButton = document.getElementById("okButton");
-okButton.addEventListener("click", handleOK);
 
 // Set up event listener for tab click
 var tablinks = document.getElementsByClassName("tablink");
 for (var i = 0; i < tablinks.length; i++) {
-  tablinks[i].addEventListener("click", function() {
+  tablinks[i].addEventListener("click", function () {
     openTab(this.id);
   });
 }
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches(".dropdown-btn")) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
-    }
-  }
-};
+// Set up event listener for Select State button click
+var selectStateButton = document.getElementById("selectStateButton");
+selectStateButton.addEventListener("click", handleSelectState);
