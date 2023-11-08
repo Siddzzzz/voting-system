@@ -274,3 +274,20 @@ input[type="button"]:hover {
   color: #f44336;
 }
 
+.background-gif {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1; /* Set a lower z-index to keep it in the background */
+}
+
+.container {
+  max-width: 800px; /* Adjust the max-width to your preference */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Add some opacity for readability */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

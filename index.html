@@ -6,15 +6,21 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Welcome to the Voting System</h1>
-  <div class="login-options">
-    <a href="staff-login.html" class="login-option">Staff Login</a>
-    <a href="voter-select.html" class="login-option">Voter Login</a>
+  <div class="background-gif">
+    <img src="voting gif.gif" alt="Voting GIF">
   </div>
-  
+
+  <div class="container">
+    <h1>Welcome to the Voting System</h1>
+    <div class="login-options">
+      <a href="staff-login.html" class="login-option">Staff Login</a>
+      <a href="voter-select.html" class="login-option">Voter Login</a>
+    </div>
+  </div>
+
   <script>
     const loginOptions = document.querySelectorAll('.login-option');
-    
+
     loginOptions.forEach(option => {
       option.addEventListener('click', (event) => {
         event.preventDefault();
