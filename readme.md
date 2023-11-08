@@ -43,7 +43,7 @@ If you'd like to contribute to this project, please follow these steps:
 4. Push your changes to your fork.
 5. Create a pull request to merge your changes into the main repository.
 
-### Please note that the site is still under development, so some features might not be available.
+## Please note that the site is still under development, so some features might not be available.
 
 ## License
 
