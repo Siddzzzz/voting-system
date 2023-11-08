@@ -1,6 +1,4 @@
-# VOTING SYSTEM
-
-![Voting System](https://beepsid.github.io/voting-system/)
+# [VOTING SYSTEM](https://beepsid.github.io/voting-system/)
 
 ## Introduction
 
