@@ -1,6 +1,6 @@
 # VOTING SYSTEM
 
-[![Voting System](https://beepsid.github.io/voting-system/)](https://beepsid.github.io/voting-system/)
+![Voting System](https://beepsid.github.io/voting-system/)
 
 ## Introduction
 
